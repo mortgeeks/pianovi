@@ -1,0 +1,18 @@
+---music21-----
+install music21 
+install music21 requiment
+install soundsfonts (freepats)
+edit configration 
+and start service 
+its works !
+----------------
+37 normal note from c2 to c7 cdefgab
+from 2 to 6 c#d#f#g#a#
+------
+event keys by pygame
+-------
+interface piano by pygame or ncurses
+--------
+fix bug pygame mixer midi player 
+ ln -s /etc/timidity++/timidity.cfg /etc/timidity.cfg
+ 
