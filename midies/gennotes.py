@@ -6,19 +6,21 @@ notessl = ['A#0', 'C#1', 'D#1', 'F#1', 'G#1', 'A#1', 'C#2', 'D#2', 'F#2', 'G#2',
 def gennotes():
 	s = stream.Stream()
 	for n in notesl:
-		print(n)
 		ns = note.Note(n)
 		s.append(ns)
 		mf = midi.translate.streamToMidiFile(s)
 		mf.open(n+'.mid', 'wb')
 		mf.write()
 		mf.close()
+		print('created '+ n)
+		s.remove(ns)
 	for n in notessl:
-		print(n)
 		ns = note.Note(n)
 		s.append(ns)
 		mf = midi.translate.streamToMidiFile(s)
 		mf.open(n+'.mid', 'wb')
 		mf.write()
 		mf.close()
+		print('created '+ n)
+		s.remove(ns)
 gennotes()
