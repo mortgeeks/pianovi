@@ -15,4 +15,5 @@ interface piano by pygame or ncurses
 --------
 fix bug pygame mixer midi player 
  ln -s /etc/timidity++/timidity.cfg /etc/timidity.cfg
- 
+--------------------
+install tk for use tkinter
