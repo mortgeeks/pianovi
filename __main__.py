@@ -34,7 +34,7 @@ def playnote():
 				m = mido.MidiFile('midies/'+note+'.mid')
 				l.append(keyname)
 				l.append(note)
-				l.append(m.length)
+				l.append(	m.length)
 	return l
 
 def playhalfn(keys):
@@ -56,20 +56,18 @@ def playhalfn(keys):
 	return l
 
 def drawrect(screen,ln):
-	if len(ln)>0:
-		clicked = ln[1]
-		notetime = ln[2]
 		screen.lock()
 		white = (255, 255, 255)
 		black = (0,0,0)
 		gray = (192,192,192)
-		for i in range(0,53):
-			if clicked==notesl[i-1]:
-				pygame.draw.rect(screen, gray, ((screen_width / 52 )* i ,  (screen_height / 3)*2 , (screen_width / 52 ) - 1, screen_height/3))
-				pygame.time.delay(int(notetime * 1000))
-				pygame.draw.rect(screen, white, ((screen_width / 52 )* i ,  (screen_height / 3)*2 , (screen_width / 52 ) - 1, screen_height/3))
-			else:
-				pygame.draw.rect(screen, white, ((screen_width / 52 )* i ,  (screen_height / 3)*2 , (screen_width / 52 ) - 1, screen_height/3))
+		for i in range(0,52):
+			if len(ln)>0:
+				if ln[1]==notesl[i]:
+					pygame.draw.rect(screen, gray, ((screen_width / 52 )* i ,  (screen_height / 3)*2 , (screen_width / 52 ) - 1, screen_height/3))
+					pygame.time.delay(750)
+					pygame.draw.rect(screen, white, ((screen_width / 52 )* i ,  (screen_height / 3)*2 , (screen_width / 52 ) - 1, screen_height/3))
+				else:
+					pygame.draw.rect(screen, white, ((screen_width / 52 )* i ,  (screen_height / 3)*2 , (screen_width / 52 ) - 1, screen_height/3))
 		j = 0
 		hnote = list(helfnotes[j])
 		for i in range(0,52):
@@ -82,9 +80,10 @@ def drawrect(screen,ln):
 		screen.unlock()
 screen.blit(background,(0,0))
 #to draw piano the intro
-drawrect(screen,'',0)
+lnk = list()
+drawrect(screen,lnk)
 while True:
-	lnk = list()
+	lnk.clear()
 	clickednote = ''
 	for event in pygame.event.get():
 		if event.type == QUIT:
